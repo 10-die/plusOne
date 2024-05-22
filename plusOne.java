@@ -6,70 +6,68 @@ public class plusOne
     int computerAnswer = 0;
     boolean isCorrect;
     int playerInput = 0;
-    static int cAnswer = 0;
-    static Random random = new Random();
+    int cAnswer = 0;
+    Random random = new Random();
     Scanner input = new Scanner(System.in);
     int x = 0;
     int level = 0;
     int randomNumber;
 
-
-
-    //
-    public void setRandomNumberGenerator(int min, int max) 
+    // upload, random number
+    public void setRandomNumber(int min, int max) 
     {
         this.randomNumber = random.nextInt(((max - min) + 1) + min);
     }
-
-    //
+    // download, random number
     public int getRandomNumber()
     {
         return this.randomNumber;
     }
+    
 
-    boolean isCorrect(int userAnswer, int computerAnswer) 
-    {
-        boolean result;
-        if (computerAnswer == userAnswer) 
-        {
-            result = true;
-        } 
-        else 
-        {
-            result = false;
-            System.out.println("end loop");
-        }
-        return result;
-    }
-
-    public static int getComputerAnswer(int computerAnswer, int randomNumber) 
-    {
-        return computerAnswer + randomNumber;
-    }
-
-    //
-    public void setGameOutput()
+    // uploadtate, computer prompt
+    public void setComputerPrompt()
     {
         System.out.println("+" + getRandomNumber());
     }
 
-    //
-    public int getPlayerInput()
-    {
-        this.playerInput = input.nextInt();
-        return playerInput;
-    }
-
-    //
-    public void setGame()
+    // upload, computer answer
+    public void setComputerAnswer()
     {
         this.computerAnswer += getRandomNumber();
     }
-
-    //
-    public void setIsCorrect()
+    // download, computer answer
+    public int getComputerAnswer() 
     {
-        if (this.playerInput == this.computerAnswer) 
+        return this.computerAnswer;
+    }
+
+    // upload, player answer
+    public void setPlayerAnswer()
+    {
+        this.playerInput = input.nextInt();
+    }
+    // download, player answer
+    public int getPlayerAnswer()
+    {
+        return this.playerInput;
+    }
+
+    // upload, current player level
+    public void setLevel()
+    {
+        this.level++;
+    }
+    // download, current player level
+    public int getLevel()
+    {
+        return level;
+    }
+
+    // upload, check player answer against computer answer
+    public void setAnswer()
+    {
+        if (getPlayerAnswer() == getComputerAnswer()) 
         {
             isCorrect = true;
         }
@@ -79,30 +77,26 @@ public class plusOne
         }
     }
 
+    // download, result of answer check
+    public boolean getAnswer()
+    {
+        return isCorrect;
+    }
+
+    // upload, game
     public void beginGame() 
     {
         do 
         {
-            setRandomNumberGenerator(1, 9);
-            setGameOutput();
-            getPlayerInput();
-            setGame();
+            setRandomNumber(1, 9);
+            setComputerPrompt();
+            setPlayerAnswer();
+            setComputerAnswer();
             setLevel();
+            setAnswer();
         } 
-            while (isCorrect = true);
+            while (getAnswer() == true);
         
         System.out.println("level " + getLevel());
-    }
-
-    //
-    public void setLevel()
-    {
-        level++;
-    }
-
-    //
-    public int getLevel()
-    {
-        return level;
     }
 }
