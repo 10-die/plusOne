@@ -58,6 +58,11 @@ public class plusOne
     {
         this.level++;
     }
+    //
+    public void gameOver()
+    {
+        System.out.println("level " + getLevel());
+    }
     // download, current player level
     public int getLevel()
     {
@@ -96,7 +101,6 @@ public class plusOne
             setAnswer();
         } 
             while (getAnswer() == true);
-        
-        System.out.println("level " + getLevel());
+            gameOver();
     }
 }
