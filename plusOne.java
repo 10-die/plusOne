@@ -3,24 +3,28 @@ import java.util.Scanner;
 
 public class plusOne
 {
-    static int computerAnswer = 0;
+    int computerAnswer = 0;
+    boolean isCorrect;
+    int playerInput = 0;
     static int cAnswer = 0;
     static Random random = new Random();
+    Scanner input = new Scanner(System.in);
     int x = 0;
     int level = 0;
-    static int randomNumber;
+    int randomNumber;
 
 
 
     //
     public void setRandomNumberGenerator(int min, int max) 
     {
-        randomNumber = random.nextInt(((max - min) + 1) + min);
+        this.randomNumber = random.nextInt(((max - min) + 1) + min);
     }
 
+    //
     public int getRandomNumber()
     {
-        return randomNumber;
+        return this.randomNumber;
     }
 
     boolean isCorrect(int userAnswer, int computerAnswer) 
@@ -43,22 +47,50 @@ public class plusOne
         return computerAnswer + randomNumber;
     }
 
+    //
+    public void setGameOutput()
+    {
+        System.out.println("+" + getRandomNumber());
+    }
+
+    //
+    public int getPlayerInput()
+    {
+        this.playerInput = input.nextInt();
+        return playerInput;
+    }
+
+    //
+    public void setGame()
+    {
+        this.computerAnswer += getRandomNumber();
+    }
+
+    //
+    public void setIsCorrect()
+    {
+        if (this.playerInput == this.computerAnswer) 
+        {
+            isCorrect = true;
+        }
+        else
+        {
+            isCorrect = false;
+        }
+    }
+
     public void beginGame() 
     {
-        try (Scanner player = new Scanner(System.in)) {
-            int playerAnswer;
-
-            do 
-            {
-                x++;
-                setRandomNumberGenerator(1,9);
-                System.out.println("+" + getRandomNumber());
-                playerAnswer = player.nextInt();
-                computerAnswer += randomNumber;
-                setLevel();
-            } 
-            while (playerAnswer == computerAnswer);
-        }
+        do 
+        {
+            setRandomNumberGenerator(1, 9);
+            setGameOutput();
+            getPlayerInput();
+            setGame();
+            setLevel();
+        } 
+            while (isCorrect = true);
+        
         System.out.println("level " + getLevel());
     }
 
