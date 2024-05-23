@@ -26,7 +26,7 @@ public class plusOne
     
 
     // uploadtate, computer prompt
-    public void setComputerPrompt()
+    public void setComputerQuestion()
     {
         System.out.println("+" + getRandomNumber());
     }
@@ -34,7 +34,25 @@ public class plusOne
     // upload, computer answer
     public void setComputerAnswer()
     {
-        this.computerAnswer += getRandomNumber();
+        int operator = 0;;
+        if (operator == 0) 
+        {
+            this.computerAnswer = this.computerAnswer + getRandomNumber();
+        }
+        else
+        if(operator == 1)
+        {
+            this.computerAnswer = this.computerAnswer - getRandomNumber();
+        }
+        else
+        if(operator == 2)
+        {
+
+        }
+        else
+        {
+
+        }
     }
     // download, computer answer
     public int getComputerAnswer() 
@@ -94,7 +112,7 @@ public class plusOne
         do 
         {
             setRandomNumber(1, 9);
-            setComputerPrompt();
+            setComputerQuestion();
             setPlayerAnswer();
             setComputerAnswer();
             setLevel();
