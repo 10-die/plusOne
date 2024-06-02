@@ -12,6 +12,8 @@ public class plusOne
     int x = 0;
     int level = 0;
     int randomNumber;
+    int randomOperatorNumber;
+    int operator;
 
     // upload, random number
     public void setRandomNumber(int min, int max) 
@@ -23,35 +25,49 @@ public class plusOne
     {
         return this.randomNumber;
     }
-    
+
+    // upload, random number
+    public void setRandomOperator(int min, int max) 
+    {
+        this.operator = random.nextInt(((max - min) + 1) + min);
+    }
+    // download, random number
+    public int getRandomOperator()
+    {
+        return this.operator;
+    }
+
 
     // uploadtate, computer prompt
     public void setComputerQuestion()
     {
-        System.out.println("+" + getRandomNumber());
+        setRandomOperator(0,1);
+        if (getRandomOperator() == 0) 
+        {
+            System.out.println("+" + getRandomNumber());
+            
+        }
+        else
+        if(getRandomOperator() == 1)
+        {
+            System.out.println("-" + getRandomNumber());
+            
+        }
     }
 
     // upload, computer answer
     public void setComputerAnswer()
     {
-        int operator = 0;;
-        if (operator == 0) 
+        if (getRandomOperator() == 0) 
         {
             this.computerAnswer = this.computerAnswer + getRandomNumber();
+            operator ++;
         }
         else
-        if(operator == 1)
+        if(getRandomOperator() == 1)
         {
             this.computerAnswer = this.computerAnswer - getRandomNumber();
-        }
-        else
-        if(operator == 2)
-        {
-
-        }
-        else
-        {
-
+            operator = 0;
         }
     }
     // download, computer answer
