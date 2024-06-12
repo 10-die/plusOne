@@ -3,59 +3,59 @@ import java.util.Scanner;
 
 public class plusOne
 {
-    int computerAnswer = 0;
-    boolean isCorrect;
-    int playerInput = 0;
-    int cAnswer = 0;
     Random random = new Random();
     Scanner input = new Scanner(System.in);
+    
+    boolean isCorrect;
+
+    int computerAnswer = 0;
+    int playerInput = 0;
+    int cAnswer = 0;
     int x = 0;
     int level = 0;
-    int randomNumber;
-    int randomOperatorNumber;
-    int operator;
+    int randomNumber = 0;
+    int randomOperatorNumber = 0;
+    int operator = 0;
 
-    // upload, random number
+    // save, random number
     public void setRandomNumber(int min, int max) 
     {
         this.randomNumber = random.nextInt(((max - min) + 1) + min);
     }
-    // download, random number
+    // access, random number
     public int getRandomNumber()
     {
         return this.randomNumber;
     }
 
-    // upload, random number
+    // save, random number
     public void setRandomOperator(int min, int max) 
     {
         this.operator = random.nextInt(((max - min) + 1) + min);
     }
-    // download, random number
+    // access, random number
     public int getRandomOperator()
     {
         return this.operator;
     }
 
 
-    // uploadtate, computer prompt
+    // savetate, computer prompt
     public void setComputerQuestion()
     {
-        setRandomOperator(0,1);
+        setRandomOperator(0, 2);
         if (getRandomOperator() == 0) 
         {
             System.out.println("+" + getRandomNumber());
-            
         }
         else
         if(getRandomOperator() == 1)
         {
             System.out.println("-" + getRandomNumber());
-            
         }
     }
 
-    // upload, computer answer
+    // save, computer answer
     public void setComputerAnswer()
     {
         if (getRandomOperator() == 0) 
@@ -70,24 +70,24 @@ public class plusOne
             operator = 0;
         }
     }
-    // download, computer answer
+    // access, computer answer
     public int getComputerAnswer() 
     {
         return this.computerAnswer;
     }
 
-    // upload, player answer
+    // save, player answer
     public void setPlayerAnswer()
     {
         this.playerInput = input.nextInt();
     }
-    // download, player answer
+    // access, player answer
     public int getPlayerAnswer()
     {
         return this.playerInput;
     }
 
-    // upload, current player level
+    // save, current player level
     public void setLevel()
     {
         this.level++;
@@ -95,15 +95,15 @@ public class plusOne
     //
     public void gameOver()
     {
-        System.out.println("level " + getLevel());
+        System.out.println("GAME OVER, LEVEL " + getLevel());
     }
-    // download, current player level
+    // access, current player level
     public int getLevel()
     {
         return level;
     }
 
-    // upload, check player answer against computer answer
+    // save, check player answer against computer answer
     public void setAnswer()
     {
         if (getPlayerAnswer() == getComputerAnswer()) 
@@ -116,18 +116,18 @@ public class plusOne
         }
     }
 
-    // download, result of answer check
+    // access, result of answer check
     public boolean getAnswer()
     {
         return isCorrect;
     }
 
-    // upload, game
+    // save, game
     public void beginGame() 
     {
         do 
         {
-            setRandomNumber(1, 9);
+            setRandomNumber(1, 33);
             setComputerQuestion();
             setPlayerAnswer();
             setComputerAnswer();
