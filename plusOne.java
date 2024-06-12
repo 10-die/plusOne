@@ -43,7 +43,7 @@ public class plusOne
     // savetate, computer prompt
     public void setComputerQuestion()
     {
-        setRandomOperator(0, 2);
+        setRandomOperator(0, 1);
         if (getRandomOperator() == 0) 
         {
             System.out.println("+" + getRandomNumber());
