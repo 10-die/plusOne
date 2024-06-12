@@ -53,6 +53,13 @@ public class plusOne
         {
             System.out.println("-" + getRandomNumber());
         }
+        /*
+        else
+        if(getRandomOperator() == 2)
+        {
+            System.out.println("x" + getRandomNumber());
+        }
+         */
     }
 
     // save, computer answer
@@ -69,6 +76,15 @@ public class plusOne
             this.computerAnswer = this.computerAnswer - getRandomNumber();
             operator = 0;
         }
+        /*
+        else
+        if(getRandomOperator() == 2)
+        {
+            this.computerAnswer = this.computerAnswer * getRandomNumber();
+            operator = 0;
+        }
+    }
+         */
     }
     // access, computer answer
     public int getComputerAnswer() 
