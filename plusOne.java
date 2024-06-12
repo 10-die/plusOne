@@ -8,14 +8,13 @@ public class plusOne
     
     boolean isCorrect;
 
-    int computerAnswer = 0;
-    int playerInput = 0;
-    int cAnswer = 0;
-    int x = 0;
-    int level = 0;
+    
     int randomNumber = 0;
     int randomOperatorNumber = 0;
     int operator = 0;
+    int computerAnswer = 0;
+    int playerInput = 0;
+    int level = 0;
 
     // save, random number
     public void setRandomNumber(int min, int max) 
@@ -143,7 +142,7 @@ public class plusOne
     {
         do 
         {
-            setRandomNumber(1, 33);
+            setRandomNumber(1, 9);
             setComputerQuestion();
             setPlayerAnswer();
             setComputerAnswer();
